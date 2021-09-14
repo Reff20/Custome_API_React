@@ -10,14 +10,21 @@ const Home = () => {
   }, [isJson]);
 
   const searchTeam = () => {
-    fetch(
-      `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${isName}`
-    ).then((data) => {
-      data.json().then((term) => {
-        setJson(term);
-      });
-    });
+    if(isName){
+        fetch(
+            `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${isName}`
+          ).then((data) => {
+            data.json().then((term) => {
+              setJson(term);
+            });
+          });
+    }else return
   };
+
+  const clearTeam = () => {
+      setJson()
+      setName()
+  }
 
   //   const renderTeams = () => {
   //     if (isJson) {
@@ -53,15 +60,17 @@ const Home = () => {
           >
             Search
           </button>
+          <button
+            onClick={clearTeam}
+            className="bg-green-700 hover:bg-green-900 text-white font-bold ml-1 py-2 px-3 rounded focus:outline-none focus:shadow-outline"
+          >
+            Clear
+          </button>
         </div>
         <div className="flex flex-row flex-wrap justify-between">
           {isJson &&
             isJson.teams.map((teams) => {
-              return (
-                <Card
-                  team={teams}
-                />
-              );
+              return <Card team={teams} />;
             })}
         </div>
       </div>
