@@ -1,10 +1,11 @@
 import React from "react";
 
 const Card = ({team}) => {
+
   return (
     <div className="cursor-pointer flex flex-row mx-16 my-5 mt-0 bg-green-100 w-2/5 h-40 items-center border-green-200 border-2 rounded">
       <div className="m-0 p-0 max-w-xs">
-        <img src={team.strTeamLogo} alt="Team Foto..." className="p-0 m-0 w-3/6 h-auto ml-10" />
+        <img src={team.strTeamLogo} alt="Team without logo" className="p-0 m-0 w-3/6 h-auto ml-10" />
       </div>
 
       <div className="flex flex-row">
