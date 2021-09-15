@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
 
 const Header = () => {
 	return (
@@ -8,14 +7,12 @@ const Header = () => {
 				Search Soccer Team
 			</h1>
 			<div>
-				<BrowserRouter>
-					<Link className='mx-4 ' to='/players'>
-						Players
-					</Link>
-					<Link className='mx-4' to='/players'>
-						oi
-					</Link>
-				</BrowserRouter>
+				<a className='mx-4 font-bold text-green-800' href='/players'>
+					Search Players
+				</a>
+				<a className='mx-4 font-bold text-green-800' href='/'>
+					Search Teams
+				</a>
 			</div>
 		</div>
 	);
