@@ -6,9 +6,6 @@ const Teams = () => {
 	const [isJson, setJson] = useState();
 	const [showModal, setShowModal] = useState();
 
-	// const handleClose = () => setShowModal(false);
-	// const handleShow = () => setShowModal(true);
-
 	useEffect(() => {}, [isJson]);
 
 	const searchTeam = () => {
@@ -54,8 +51,12 @@ const Teams = () => {
 									<div className='border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
 										{/*header*/}
 										<div className='flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t'>
-											<h3 className='text-3xl font-semibold'>Opa!</h3>
-											<button onClick={() => setShowModal(false)}>
+											<h3 className='text-3xl font-semibold'>Ooops!</h3>
+											<button
+												onClick={() => {
+													setShowModal(false);
+													window.location.reload();
+												}}>
 												<span className='bg-transparent text-black h-6 w-6 text-2xl block outline-none focus:outline-none'>
 													×
 												</span>
@@ -64,10 +65,7 @@ const Teams = () => {
 										{/*body*/}
 										<div className='relative p-6 flex-auto'>
 											<p className='my-4 text-blueGray-500 text-lg leading-relaxed'>
-												Infelizmente não conseguimos encontrar esse time em
-												nossa base de dados...
-												<br />
-												ALERTA: Verifique se o nome está escrito corretamente.
+											We didn't found this team in our Data Base. Please try again...
 											</p>
 										</div>
 									</div>
@@ -78,12 +76,7 @@ const Teams = () => {
 					) : (
 						isJson &&
 						isJson.teams.map((teams, key) => {
-							return (
-								<Card
-									team={teams}
-									key={key}
-								/>
-							);
+							return <Card team={teams} key={key} />;
 						})
 					)}
 				</div>
