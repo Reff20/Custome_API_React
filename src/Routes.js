@@ -1,18 +1,18 @@
-import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
-import Header from "./components/header";
+import React from 'react';
+import { Route, BrowserRouter } from 'react-router-dom';
 
-import Home from "./pages/home";
+import Teams from './pages/teams';
+import Players from './pages/players';
 
 const Routes = () => {
-  return (
-    <>
-      <Header />
-      <BrowserRouter>
-        <Route component={Home} path="/" exact />
-      </BrowserRouter>
-    </>
-  );
+	return (
+		<>
+			<BrowserRouter>
+				<Route component={Teams} path='/' exact />
+				<Route component={Players} path='/players' exact />
+			</BrowserRouter>
+		</>
+	);
 };
 
 export default Routes;
